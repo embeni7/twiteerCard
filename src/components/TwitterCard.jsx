@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './TwitterCard.css'
 
-function TwitterCard({name, userName, isFollowing}) {
+function TwitterCard({name, userName, initialIsFollowing}) {
+  const [isFollowing, setisFollowing] = useState(initialIsFollowing)
+  const textFollowing = isFollowing ? 'Seguir' : 'Siguiendo'
+  const isFollowingClass = !isFollowing ? 'tw-followCard-button' : 'tw-followCard-button is-following'
+  const toggleFollowing = ()=>{
+    
+    setisFollowing(!isFollowing);
+    
+  }
   return (
     <article className='tw-followCard'>
     <header className='tw-followCard-header'>
@@ -17,8 +25,9 @@ function TwitterCard({name, userName, isFollowing}) {
     </header>
 
     <aside>
-      <button className='tw-followCard-button is-following'>
-        <span className='tw-followCard-text'>Seguir</span>
+      <button onClick={toggleFollowing} className={isFollowingClass}>
+        <span className='tw-followCard-text'>{textFollowing}</span>
+        <span className='tw-followCard-text tw-followCard-stopFollow'>Dejar de seguir</span>
       </button>
     </aside>
   </article>
