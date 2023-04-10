@@ -30,7 +30,7 @@ function App() {
           key={user.id}
           name={user.name}
           userName={user.userName}
-          isFollowing={user.isFollowing}
+          initialIsFollowing={user.isFollowing}
         />
       ))}
     </div>
