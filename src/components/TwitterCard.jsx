@@ -4,7 +4,7 @@ import './TwitterCard.css'
 function TwitterCard({name, userName, initialIsFollowing}) {
   const [isFollowing, setisFollowing] = useState(initialIsFollowing)
   const textFollowing = isFollowing ? 'Seguir' : 'Siguiendo'
-  const isFollowingClass = !isFollowing ? 'tw-followCard-button' : 'tw-followCard-button is-following'
+  const isFollowingClass = isFollowing ? 'tw-followCard-button' : 'tw-followCard-button is-following'
   const toggleFollowing = ()=>{
     
     setisFollowing(!isFollowing);
